@@ -23,14 +23,11 @@ rl.question("Enter Your Name : ", (name) => {
           .update(logpass)
           .digest("hex");
 
-        
-        const found = false;
         const details = fs.readFileSync("./UserDetails.txt", "utf-8");
         const [username, userpass] = details.split(":");
        
 
         if (logname == username && hashpass == userpass) {
-            found=true;
           return console.log("Login successfully");
         } else {
           console.log("invalid");
