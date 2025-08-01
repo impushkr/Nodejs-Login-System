@@ -15,7 +15,8 @@ rl.question("Enter Your Name : ", (name) => {
 
     const filepath = path.join(__dirname, "./UserDetails.txt");
     fs.writeFileSync(filepath, `${name}:${hashPassword}`);
-
+    
+    console.log("\nEnter your details to login")
     rl.question("Enter your name : ", (logname) => {
       rl.question("Enter your password : ", (logpass) => {
         const hashpass = crypto
@@ -28,9 +29,9 @@ rl.question("Enter Your Name : ", (name) => {
        
 
         if (logname == username && hashpass == userpass) {
-          return console.log("Login successfully");
+          return console.log("\nLogin successfully 🥳 ");
         } else {
-          console.log("invalid");
+          console.log("\ninvalid user details ");
         }
 
         rl.close();
