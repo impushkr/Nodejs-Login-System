@@ -28,7 +28,7 @@ rl.question("Enter Your Name : ", (name) => {
         const [username, userpass] = details.split(":");
 
         if (logname == username && hashpass == userpass) {
-          return console.log("\nLogin successfully ✅ ");
+          return console.log("\nLogin successfully ✅ \n");
         } else {
           console.log("\ninvalid user details ");
         }
