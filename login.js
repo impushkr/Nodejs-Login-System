@@ -13,10 +13,10 @@ rl.question("Enter Your Name : ", (name) => {
   rl.question("Set Password : ", (pass) => {
     const hashPassword = crypto.createHash("sha256").update(pass).digest("hex");
 
-    const filepath = path.join(__dirname, "./UserDetails.txt");
+    const filepath = path.join(__dirname, "./Database.txt");
     fs.writeFileSync(filepath, `${name}:${hashPassword}`);
-    
-    console.log("\nEnter your details to login")
+
+    console.log("\nEnter your details to login");
     rl.question("Enter your name : ", (logname) => {
       rl.question("Enter your password : ", (logpass) => {
         const hashpass = crypto
@@ -24,12 +24,11 @@ rl.question("Enter Your Name : ", (name) => {
           .update(logpass)
           .digest("hex");
 
-        const details = fs.readFileSync("./UserDetails.txt", "utf-8");
+        const details = fs.readFileSync("./Database.txt", "utf-8");
         const [username, userpass] = details.split(":");
-       
 
         if (logname == username && hashpass == userpass) {
-          return console.log("\nLogin successfully 🥳 ");
+          return console.log("\nLogin successfully ✅ ");
         } else {
           console.log("\ninvalid user details ");
         }
@@ -37,7 +36,5 @@ rl.question("Enter Your Name : ", (name) => {
         rl.close();
       });
     });
-
-    /////////////////////////
   });
 });
